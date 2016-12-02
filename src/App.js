@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import Map from './Map';
-
-
 
 
 
@@ -23,13 +22,17 @@ class App extends Component {
 
     render() {
         return (
-            <div id="app-root">
-                <h1>Городской лесничий</h1>
+            <div id="app-root" className="container">
+                <div className="page-header">
+                    <h1>Городской лесничий</h1>
+                </div>
                 <div id="trees-main">
                     <Map />
                     {this.state.showPanel && <div id="trees-panel">
+                        <button type="button" className="close" onClick={this.handleHideButton}>
+                            <span>&times;</span>
+                        </button>
                         <h2>Тополь</h2>
-                        <button onClick={this.handleHideButton}>Скрыть</button>
                     </div>}
                 </div>
             </div>
