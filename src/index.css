@@ -40,7 +40,16 @@ body {
     padding: 20px;
 }
 
-.trees-slider-panel .Select {
-
+.trees-slider-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
+.trees-slider-panel > div {
+    min-width: 40%;
+}
+
+.trees-slider-panel .Select {
+    z-index: 2000;
+}

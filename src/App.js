@@ -60,20 +60,23 @@ class App extends Component {
                     <h1>Городской лесничий</h1>
 
                     <div className="trees-slider-panel">
-                        <h2>Выберите дерево</h2>
-                        <Select
-                            value={this.state.selectedTree}
-                            options={trees}
-                            onChange={this.handleSelectTree}
-                            clearable={false}
-                        />
-
-                        <h2>Вырубайте!</h2>
-                        <Slider value={this.state.countOfTrees} onChange={this.handleChangeCountOfTrees} />
-                        <p>
-                            Риск зомби-апокалипсиса: {zombi(this.state.countOfTrees, this.state.selectedTree)}%
-                        </p>
+                        <div>
+                            <h2>Выберите дерево</h2>
+                            <Select
+                                value={this.state.selectedTree}
+                                options={trees}
+                                onChange={this.handleSelectTree}
+                                clearable={false}
+                            />
+                        </div>
+                        <div>
+                            <h2>Вырубайте!</h2>
+                            <Slider value={this.state.countOfTrees} onChange={this.handleChangeCountOfTrees} />
+                        </div>
                     </div>
+                    <h3>
+                        Риск зомби-апокалипсиса: {zombi(this.state.countOfTrees, this.state.selectedTree)}%
+                    </h3>
 
                 </div>
                 <div id="trees-main">
