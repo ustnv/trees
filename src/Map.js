@@ -27,10 +27,6 @@ export default class Map extends Component {
         return false;
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.drawLayer(nextProps.trees);
-    }
-
     drawLayer(trees) {
         if (this.layer) {
             this.layer.clearLayers();
