@@ -12,14 +12,43 @@ export default class Map extends Component {
         super(props);
         this.map = null;
         this.layer = null;
+
+        this.handleSelect = (tree) => {
+            this.props.onSelectTree(tree);
+        }
     }
 
     componentDidMount() {
         this.initLeaflet();
+        this.drawLayer(this.props.trees);
     }
 
-     shouldComponentUpdate() {
+    shouldComponentUpdate() {
         return false;
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.drawLayer(nextProps.trees);
+    }
+
+    drawLayer(trees) {
+        if (this.layer) {
+            this.layer.clearLayers();
+        }
+        if (trees.length === 0) {
+            return;
+        }
+        this.layer = new L.FeatureGroup();
+        trees.forEach(tree => this.layer.addLayer(
+            new L.Marker([tree.longitude, tree.latitude]).on('click', () => this.handleSelect(tree))
+        ));
+
+        this.layer.addTo(this.map);
+
+        setTimeout(() => this.map.fitBounds(this.layer.getBounds(), {
+            padding: [20, 20],
+            animate: true
+        }), 300);
     }
 
     initLeaflet() {
@@ -50,6 +79,6 @@ export default class Map extends Component {
 
 
 Map.propTypes = {
-    organizations: PropTypes.array,
-    onMapReady: PropTypes.func
+    trees: PropTypes.array.isRequired,
+    onSelectTree: PropTypes.func.isRequired
 };

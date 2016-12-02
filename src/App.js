@@ -5,6 +5,7 @@ import 'rc-slider/dist/rc-slider.css';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import Map from './Map';
+import data from './trees_data.json';
 
 
 const trees = [
@@ -34,23 +35,25 @@ class App extends Component {
         super(props);
 
         this.state = {
-            showPanel: true,
             selectedTree: trees[0],
-            countOfTrees: 0
+            countOfTrees: 0,
+            selectedTreeInfo: null,
+            trees: data
         };
 
-        this.showPanel = () => this.setState({showPanel: true});
-
-        this.closePanel = () => this.setState({showPanel: false});
-
-        this.handleHideButton = () => this.closePanel();
+        this.handleHideButton = () => this.setState({selectedTreeInfo: null});
 
         this.handleSelectTree = (e) => this.setState({selectedTree: e});
 
         this.handleChangeCountOfTrees = (value) => this.setState({countOfTrees: value});
+
+        this.handleSelectTreeInfo = (tree) => this.setState({
+            selectedTreeInfo: tree
+        });
     }
 
     render() {
+        const tree = this.state.selectedTreeInfo;
         return (
             <div id="app-root" className="container">
                 <div className="page-header">
@@ -74,12 +77,15 @@ class App extends Component {
 
                 </div>
                 <div id="trees-main">
-                    <Map />
-                    {this.state.showPanel && <div id="trees-panel">
+                    <Map trees={this.state.trees} onSelectTree={this.handleSelectTreeInfo} />
+                    {tree && <div id="trees-panel">
                         <button type="button" className="close" onClick={this.handleHideButton}>
                             <span>&times;</span>
                         </button>
-                        <h2>Тополь</h2>
+                        <h2>{tree.name}</h2>
+                        <div>Диаметр: {tree.diameter}</div>
+                        <div>Высота: {tree.height}</div>
+                        {tree.age && <div>Возраст: {tree.age}</div>}
                     </div>}
                 </div>
             </div>
