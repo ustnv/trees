@@ -1,5 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+#root, #app-root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#trees-main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#trees-panel {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 30%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
 }
