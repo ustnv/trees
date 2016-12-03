@@ -10,8 +10,8 @@ const getMarkerOptions = (tree) => {
     // TODO: uncomment this after color in data
     // for example see http://leafletjs.com/reference-1.0.2.html#circlemarker
     return {
+        stroke: false,
         color: tree.color,
-        fill: tree.color,
         fillOpacity: 1,
         radius: tree.diameter * 10
     }
