@@ -57,7 +57,7 @@ export default class Map extends Component {
     initLeaflet() {
         L.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/images/';
         const map = L.map(MAP_ID, {zoomControl: false});
-        const osmUrl = '//{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
+        const osmUrl = 'https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamltYm9yb2JpbiIsImEiOiJ3WnBLYkFBIn0.0IOOPbg1m1o5Pg5ErUGd9g';
         const osm = new L.TileLayer(
             osmUrl, {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
