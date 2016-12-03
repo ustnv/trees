@@ -63,6 +63,7 @@ export default class Map extends Component {
 
         map.setView(new L.LatLng(64, 83), 3);
         map.addLayer(osm);
+        map.scrollWheelZoom.disable();
 
         this.map = map;
     }

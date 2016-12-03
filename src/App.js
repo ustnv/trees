@@ -9,13 +9,26 @@ import data from './trees_data.json';
 
 
 const trees = [
-    {value: 'tree1', label: 'Дерево 1'},
-    {value: 'tree2', label: 'Дерево 2'},
-    {value: 'tree3', label: 'Дерево 3'}
+    {value: 'tree1', label: 'Тополь'},
+    {value: 'tree2', label: 'Дуб'},
+    {value: 'tree3', label: 'Клен'}
 ];
 
 
-const zombi = (count, treeType) => {
+const formal = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count * 0.728;
+        case 'tree2':
+            return count * 0.112;
+        case 'tree3':
+            return count * 0.114;
+        default:
+            return count;
+    }
+};
+
+const saja = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
             return count * 10;
@@ -55,9 +68,8 @@ class App extends Component {
     render() {
         const tree = this.state.selectedTreeInfo;
         return (
-            <div id="app-root" className="container">
-                <div className="page-header">
-                    <h1>Городской лесничий</h1>
+            <div id="app-root">
+                <div className="page-header container">
 
                     <div className="trees-slider-panel">
                         <div>
@@ -74,9 +86,39 @@ class App extends Component {
                             <Slider value={this.state.countOfTrees} onChange={this.handleChangeCountOfTrees} />
                         </div>
                     </div>
-                    <h3>
-                        Риск зомби-апокалипсиса: {zombi(this.state.countOfTrees, this.state.selectedTree)}%
-                    </h3>
+                    <div className="row data">
+                        <div className="col-md-2">
+                            <h3>Углерода оксид</h3>
+                            <p>Аллергия, злокачественные опухоли и т.д.</p>
+                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h2>мкг</h2>
+                        </div>
+                        <div className="col-md-2">
+                            <h3>Углеводороды</h3>
+                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h2>мкг</h2>
+                        </div>
+                        <div className="col-md-2">
+                            <h3>Сажа</h3>
+                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h2>мкг</h2>
+                        </div>
+                        <div className="col-md-2">
+                            <h3>Окислы азота</h3>
+                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h2>мкг</h2>
+                        </div>
+                        <div className="col-md-2">
+                            <h3>Сернистый газ</h3>
+                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h2>мкг</h2>
+                        </div>
+                        <div className="col-md-2">
+                            <h3>Окислы металлов</h3>
+                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h2>мкг</h2>
+                        </div>
+                    </div>
 
                 </div>
                 <div id="trees-main">
