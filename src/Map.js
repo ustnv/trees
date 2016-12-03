@@ -6,6 +6,17 @@ import 'leaflet/dist/leaflet.css';
 const MAP_ID = 'map';
 
 
+const getMarkerOptions = (tree) => {
+    // TODO: uncomment this after color in data
+    // for example see http://leafletjs.com/reference-1.0.2.html#circlemarker
+    return {
+        // color: tree.color,
+        // fill: tree.color,
+        radius: tree.diameter * 10
+    }
+};
+
+
 export default class Map extends Component {
 
     constructor(props) {
@@ -36,7 +47,7 @@ export default class Map extends Component {
         }
         this.layer = new L.FeatureGroup();
         trees.forEach(tree => this.layer.addLayer(
-            new L.Marker([tree.longitude, tree.latitude]).on('click', () => this.handleSelect(tree))
+            new L.circleMarker([tree.longitude, tree.latitude], getMarkerOptions(tree)).on('click', () => this.handleSelect(tree))
         ));
 
         this.layer.addTo(this.map);
