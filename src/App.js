@@ -44,11 +44,11 @@ const uglevodorody = (count, treeType) => {
 const saja = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
-            return count * 0.02953072691;
+            return count * 0.3878838997;
         case 'tree2':
-            return count * 0.05212405897;
+            return count * 0.6846456344;
         case 'tree3':
-            return count * 0.0412969817;
+            return count * 0.5424327804;
         default:
             return count;
     }
@@ -57,11 +57,11 @@ const saja = (count, treeType) => {
 const okisly_azota = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
-            return count * 0.02953072691;
+            return count * 0.3841467606;
         case 'tree2':
-            return count * 0.05212405897;
+            return count * 0.6780492895;
         case 'tree3':
-            return count * 0.0412969817;
+            return count * 0.5372066115;
         default:
             return count;
     }
@@ -70,11 +70,11 @@ const okisly_azota = (count, treeType) => {
 const sern_gas = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
-            return count * 0.02953072691;
+            return count * 0.154221107;
         case 'tree2':
-            return count * 0.05212405897;
+            return count * 0.272212401;
         case 'tree3':
-            return count * 0.0412969817;
+            return count * 0.2156691318;
         default:
             return count;
     }
@@ -83,11 +83,11 @@ const sern_gas = (count, treeType) => {
 const okisly_metal = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
-            return count * 0.02953072691;
+            return count * 0.1411502797;
         case 'tree2':
-            return count * 0.05212405897;
+            return count * 0.2491413613;
         case 'tree3':
-            return count * 0.0412969817;
+            return count * 0.1973903499;
         default:
             return count;
     }
@@ -151,22 +151,22 @@ class App extends Component {
                         </div>
                         <div className="col-md-2">
                             <h3>Сажа</h3>
-                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{saja(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы азота</h3>
-                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{okisly_azota(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Сернистый газ</h3>
-                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{sern_gas(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы металлов</h3>
-                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{okisly_metal(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                     </div>
