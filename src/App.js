@@ -9,20 +9,33 @@ import data from './trees_data.json';
 
 
 const trees = [
-    {value: 'tree1', label: 'Тополь'},
-    {value: 'tree2', label: 'Дуб'},
+    {value: 'tree1', label: 'Дуб'},
+    {value: 'tree2', label: 'Тополь'},
     {value: 'tree3', label: 'Клен'}
 ];
 
 
-const formal = (count, treeType) => {
+const ugleroda_oksid = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
-            return count * 0.728;
+            return count * 0.009342847845;
         case 'tree2':
-            return count * 0.112;
+            return count * 0.01649086233;
         case 'tree3':
-            return count * 0.114;
+            return count * 0.01306542225;
+        default:
+            return count;
+    }
+};
+
+const uglevodorody = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count * 0.02953072691;
+        case 'tree2':
+            return count * 0.05212405897;
+        case 'tree3':
+            return count * 0.0412969817;
         default:
             return count;
     }
@@ -31,16 +44,54 @@ const formal = (count, treeType) => {
 const saja = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
-            return count * 10;
+            return count * 0.02953072691;
         case 'tree2':
-            return count * 20;
+            return count * 0.05212405897;
         case 'tree3':
-            return count * 30;
+            return count * 0.0412969817;
         default:
             return count;
     }
 };
 
+const okisly_azota = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count * 0.02953072691;
+        case 'tree2':
+            return count * 0.05212405897;
+        case 'tree3':
+            return count * 0.0412969817;
+        default:
+            return count;
+    }
+};
+
+const sern_gas = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count * 0.02953072691;
+        case 'tree2':
+            return count * 0.05212405897;
+        case 'tree3':
+            return count * 0.0412969817;
+        default:
+            return count;
+    }
+};
+
+const okisly_metal = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count * 0.02953072691;
+        case 'tree2':
+            return count * 0.05212405897;
+        case 'tree3':
+            return count * 0.0412969817;
+        default:
+            return count;
+    }
+};
 
 class App extends Component {
 
@@ -90,32 +141,32 @@ class App extends Component {
                         <div className="col-md-2">
                             <h3>Углерода оксид</h3>
                             <p>Аллергия, злокачественные опухоли и т.д.</p>
-                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{ugleroda_oksid(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Углеводороды</h3>
-                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Сажа</h3>
-                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы азота</h3>
-                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Сернистый газ</h3>
-                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы металлов</h3>
-                            <h1>{formal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
                             <h2>мкг</h2>
                         </div>
                     </div>
