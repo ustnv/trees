@@ -68,7 +68,7 @@ export default class Map extends Component {
             position: 'topright'
         }).addTo(map);
 
-        map.setView(new L.LatLng(53.9, 27.5), 11);
+        map.setView(new L.LatLng(53.9, 27.5), 12);
         map.addLayer(osm);
         map.scrollWheelZoom.disable();
 

@@ -1,12 +1,14 @@
+
 * {
     box-sizing: border-box;
 }
 
-body {
+body,html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
     background-color: #E7E7E7;
+    height: 100%;
 }
 
 #root, #app-root {
@@ -42,7 +44,16 @@ body {
     z-index: 1000;
     padding: 20px;
     background-image: url("fon.jpg");
+    font-family: 'Neucha', cursive;
 
+}
+
+#trees-panel .header {
+    text-transform: uppercase;
+}
+
+#trees-panel p {
+    font-size: 20px;
 }
 
 .trees-slider-panel {
@@ -90,13 +101,27 @@ body {
     margin-top: 50px;
 }
 
-.data h1 {
+.h1 {
     margin: 0;
     font-size: 60px;
 }
 
+.data h1 {
+    margin: 0;
+    font-size: 70px;
+    font-weight: bold;
+}
+
 .data h2 {
     margin: 0;
+}
+
+.data h2 {
+    margin: 0;
+}
+#trees-panel h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .data h3 {
@@ -111,4 +136,104 @@ body {
 
 .page-header {
     font-family: 'Noto Serif', serif;
+}
+
+.tree {
+    width: 150%;
+    margin-left: -150px;
+}
+
+.table td p{
+    text-align: left;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px!important;
+}
+
+.jumbotron {
+    background-image: url("fon1.jpg");
+    width:100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.cover {
+    background-image: url("fon1.jpg");
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    background-attachment: fixed;
+    opacity: 10;
+}
+
+.first-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    right: 0;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    margin-bottom: -50px;
+}
+
+.first-screen img {
+    margin-top:10vh;
+    z-index: 100;
+    height: 150px;
+}
+
+.arrow-ground {
+    bottom: 15%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    height: 30px;
+}
+
+.carousel-caption{
+    position:static;
+    font-size: 40px;
+    text-align: center;
+    margin: 0 20%;
+    font-family: Noto Serif, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.carousel {
+    height: 300px;
+}
+
+.arrow-ground p {
+    color:white;
+    font-family: Noto Serif, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.red {
+    color: red;
+}
+
+hr {
+    border: 1px solid #999;
+    width: 100%;
+}
+
+.gif {
+    width: 100%;
+}
+
+
+.head {
+    font-family: Noto Serif, serif;
 }

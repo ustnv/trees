@@ -17,6 +17,18 @@ const trees = [
 
 const format = (value) => numeral(value).format('0.0');
 
+const trees1 = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count;
+        case 'tree2':
+            return count;
+        case 'tree3':
+            return count;
+        default:
+            return count;
+    }
+};
 
 const ugleroda_oksid = (count, treeType) => {
     switch (treeType.value) {
@@ -96,6 +108,19 @@ const okisly_metal = (count, treeType) => {
     }
 };
 
+const euro = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count * 14.97493345;
+        case 'tree2':
+            return count * 24.6698079;
+        case 'tree3':
+            return count * 20.94156214;
+        default:
+            return count;
+    }
+};
+
 class App extends Component {
 
     constructor(props) {
@@ -127,6 +152,15 @@ class App extends Component {
 
                     <div className="trees-slider-panel">
                         <div>
+                            <h1>Роль деревьев</h1>
+                            <br/>
+                            <p>
+                                Дерево - конкретная финансовая выгода. Недооцененный актив наших городов.
+Очищение воздуха от вредных веществ, представляющих серьезную опасность для здоровья людей.
+Очищение и уменьшение объемов грязных стоков и ливневых вод, основных источников загрязнения грунтовых вод, рек, ручьев и озер.
+Экономия энергии для отопления и охлаждения зданий, понижение температуры летом и защита от ветра зимой.
+                            </p>
+                            <img src={'gif_1.gif'} className="gif" loop="infinite"/>
                             <h2>Выберите дерево</h2>
                             <Select
                                 value={this.state.selectedTree}
@@ -142,53 +176,83 @@ class App extends Component {
                     </div>
                     <div className="row data">
                         <div className="col-md-2">
-                            <h3>Углерода оксид</h3>
-                            <p>Аллергия, злокачественные опухоли и т.д.</p>
-                            <h1>{format(ugleroda_oksid(this.state.countOfTrees, this.state.selectedTree))}</h1>
-                            <h2>мкг</h2>
+                            <h3>Деревья</h3>
+                            <h1 className="red">-{trees1(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h2>штук</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Углеводороды</h3>
-                            <h1>{format(uglevodorody(this.state.countOfTrees, this.state.selectedTree))}</h1>
+                            <h1>+{format(uglevodorody(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
+                            <br/>
+                            <p>Нарушение системы дыхания и кровообращения, астма, частые простудные заболевания</p>
                         </div>
                         <div className="col-md-2">
                             <h3>Сажа</h3>
-                            <h1>{format(saja(this.state.countOfTrees, this.state.selectedTree))}</h1>
+                            <h1>+{format(saja(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
+                            <br/>
+                            <p>Расстройства нервной и сердечнососудистой систем, нарушения функции печени, неврастении, раздражительность</p>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы азота</h3>
-                            <h1>{format(okisly_azota(this.state.countOfTrees, this.state.selectedTree))}</h1>
+                            <h1>+{format(okisly_azota(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
+                            <br/>
+                            <p>Заболевания дыхательных путей, повышенная смертность от сердечных и раковых заболеваний</p>
                         </div>
                         <div className="col-md-2">
                             <h3>Сернистый газ</h3>
-                            <h1>{format(sern_gas(this.state.countOfTrees, this.state.selectedTree))}</h1>
+                            <h1>+{format(sern_gas(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
+                            <br/>
+                            <p>Cильный яд, вызывает беспокойство и депрессию, психические расстройства, нарушения сна, частые головные боли</p>
                         </div>
                         <div className="col-md-2">
-                            <h3>Окислы металлов</h3>
-                            <h1>{format(okisly_metal(this.state.countOfTrees, this.state.selectedTree))}</h1>
-                            <h2>мкг</h2>
+                            <h3>Ущерб</h3>
+                            <h1 className="red">-{format(euro(this.state.countOfTrees, this.state.selectedTree))}</h1>
+                            <h2>евро</h2>
                         </div>
                     </div>
 
                 </div>
+                <hr/>
+                <h1 className="head">Оцените свой район</h1>
+                <br/>
                 <div id="trees-main">
+
                     <Map trees={this.state.trees} onSelectTree={this.handleSelectTreeInfo} />
                     {tree && <div id="trees-panel">
                         <button type="button" className="close" onClick={this.handleHideButton}>
                             <span>&times;</span>
                         </button>
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-12 header">
                                 <h2>{tree.name}</h2>
                             </div>
+                        </div>
+                        <div className="row">
                             <div className="col-md-6">
-                                <p>Диаметр: {tree.diameter}</p>
-                                <p>Высота: {tree.height}</p>
-                                <p>{tree.age && <div>Возраст: {tree.age}</div>}</p>
+                                <img src={'tree.png'} className="tree"/>
+                            </div>
+                            <div className="col-md-6">
+
+                            <table className="table">
+                                <tr>
+                                    <td><p>Диаметр</p></td>
+                                    <td><p>{format(tree.diameter)} м.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Высота</p></td>
+                                    <td><p>{format(tree.height)} м.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Возраст (лет)</p></td>
+                                    <td><p>{tree.age}</p></td>
+                                </tr>
+
+
+                            </table>
                             </div>
                         </div>
                     </div>}
