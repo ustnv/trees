@@ -38,9 +38,10 @@ body {
     top: 0;
     left: 0;
     width: 30%;
+    min-width: 400px;
     z-index: 1000;
     padding: 20px;
-    background-image: url("/media/fon.jpg");
+    background-image: url("fon.jpg");
 
 }
 

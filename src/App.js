@@ -181,10 +181,16 @@ class App extends Component {
                         <button type="button" className="close" onClick={this.handleHideButton}>
                             <span>&times;</span>
                         </button>
-                        <h2>{tree.name}</h2>
-                        <div>Диаметр: {tree.diameter}</div>
-                        <div>Высота: {tree.height}</div>
-                        {tree.age && <div>Возраст: {tree.age}</div>}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <h2>{tree.name}</h2>
+                            </div>
+                            <div className="col-md-6">
+                                <p>Диаметр: {tree.diameter}</p>
+                                <p>Высота: {tree.height}</p>
+                                <p>{tree.age && <div>Возраст: {tree.age}</div>}</p>
+                            </div>
+                        </div>
                     </div>}
                 </div>
             </div>
