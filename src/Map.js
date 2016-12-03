@@ -52,11 +52,6 @@ export default class Map extends Component {
         ));
 
         this.layer.addTo(this.map);
-
-        setTimeout(() => this.map.fitBounds(this.layer.getBounds(), {
-            padding: [20, 20],
-            animate: true
-        }), 300);
     }
 
     initLeaflet() {
@@ -73,7 +68,7 @@ export default class Map extends Component {
             position: 'topright'
         }).addTo(map);
 
-        map.setView(new L.LatLng(64, 83), 5);
+        map.setView(new L.LatLng(53.9, 27.5), 11);
         map.addLayer(osm);
         map.scrollWheelZoom.disable();
 
