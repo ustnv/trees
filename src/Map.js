@@ -50,7 +50,7 @@ export default class Map extends Component {
     initLeaflet() {
         L.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/images/';
         const map = L.map(MAP_ID, {zoomControl: false});
-        const osmUrl = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
+        const osmUrl = '//{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
         const osm = new L.TileLayer(
             osmUrl, {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
