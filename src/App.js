@@ -4,15 +4,18 @@ import Slider from 'rc-slider';
 import 'rc-slider/dist/rc-slider.css';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import numeral from 'numeral';
 import Map from './Map';
 import data from './trees_data.json';
-
 
 const trees = [
     {value: 'tree1', label: 'Дуб'},
     {value: 'tree2', label: 'Тополь'},
     {value: 'tree3', label: 'Клен'}
 ];
+
+
+const format = (value) => numeral(value).format('0.0');
 
 
 const ugleroda_oksid = (count, treeType) => {
@@ -141,32 +144,32 @@ class App extends Component {
                         <div className="col-md-2">
                             <h3>Углерода оксид</h3>
                             <p>Аллергия, злокачественные опухоли и т.д.</p>
-                            <h1>{ugleroda_oksid(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{format(ugleroda_oksid(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Углеводороды</h3>
-                            <h1>{uglevodorody(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{format(uglevodorody(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Сажа</h3>
-                            <h1>{saja(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{format(saja(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы азота</h3>
-                            <h1>{okisly_azota(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{format(okisly_azota(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Сернистый газ</h3>
-                            <h1>{sern_gas(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{format(sern_gas(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы металлов</h3>
-                            <h1>{okisly_metal(this.state.countOfTrees, this.state.selectedTree)}</h1>
+                            <h1>{format(okisly_metal(this.state.countOfTrees, this.state.selectedTree))}</h1>
                             <h2>мкг</h2>
                         </div>
                     </div>
