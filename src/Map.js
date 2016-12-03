@@ -12,7 +12,7 @@ const getMarkerOptions = (tree) => {
     return {
         stroke: false,
         color: tree.color,
-        fillOpacity: 1,
+        fillOpacity: 0.5,
         radius: tree.diameter * 10
     }
 };
