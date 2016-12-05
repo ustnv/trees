@@ -136,6 +136,7 @@ body,html {
 
 .page-header {
     font-family: 'Noto Serif', serif;
+    border: none;
 }
 
 .tree {
@@ -236,4 +237,20 @@ hr {
 
 .head {
     font-family: Noto Serif, serif;
+}
+
+.describe {
+    font-size: 12px!important;
+    text-align: left;
+    font-family: 'Noto Serif', serif;
+}
+
+.blank_row
+{
+    height: 10px !important; /* Overwrite any previous rules */
+    background-color: transparent;
+}
+
+.special {
+    border-right: 1px solid black;
 }

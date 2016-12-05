@@ -17,6 +17,8 @@ const trees = [
 
 const format = (value) => numeral(value).format('0.0');
 
+const format1 = (value) => numeral(value).format('0.');
+
 const trees1 = (count, treeType) => {
     switch (treeType.value) {
         case 'tree1':
@@ -121,6 +123,19 @@ const euro = (count, treeType) => {
     }
 };
 
+const euro50 = (count, treeType) => {
+    switch (treeType.value) {
+        case 'tree1':
+            return count * 14.97493345 * 50 * 0.001;
+        case 'tree2':
+            return count * 24.6698079 * 50 * 0.001;
+        case 'tree3':
+            return count * 20.94156214 * 50 * 0.001;
+        default:
+            return count;
+    }
+};
+
 class App extends Component {
 
     constructor(props) {
@@ -181,37 +196,38 @@ class App extends Component {
                             <h2>штук</h2>
                         </div>
                         <div className="col-md-2">
-                            <h3>Углеводороды</h3>
-                            <h1>+{format(uglevodorody(this.state.countOfTrees, this.state.selectedTree))}</h1>
-                            <h2>мкг</h2>
-                            <br/>
-                            <p>Нарушение системы дыхания и кровообращения, астма, частые простудные заболевания</p>
-                        </div>
-                        <div className="col-md-2">
                             <h3>Сажа</h3>
                             <h1>+{format(saja(this.state.countOfTrees, this.state.selectedTree))}</h1>
-                            <h2>мкг</h2>
+                            <h2>мкг/год</h2>
                             <br/>
                             <p>Расстройства нервной и сердечнососудистой систем, нарушения функции печени, неврастении, раздражительность</p>
                         </div>
                         <div className="col-md-2">
                             <h3>Окислы азота</h3>
                             <h1>+{format(okisly_azota(this.state.countOfTrees, this.state.selectedTree))}</h1>
-                            <h2>мкг</h2>
+                            <h2>мкг/год</h2>
                             <br/>
                             <p>Заболевания дыхательных путей, повышенная смертность от сердечных и раковых заболеваний</p>
                         </div>
                         <div className="col-md-2">
                             <h3>Сернистый газ</h3>
                             <h1>+{format(sern_gas(this.state.countOfTrees, this.state.selectedTree))}</h1>
-                            <h2>мкг</h2>
+                            <h2>мкг/год</h2>
                             <br/>
                             <p>Cильный яд, вызывает беспокойство и депрессию, психические расстройства, нарушения сна, частые головные боли</p>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-md-2 special">
                             <h3>Ущерб</h3>
-                            <h1 className="red">-{format(euro(this.state.countOfTrees, this.state.selectedTree))}</h1>
-                            <h2>евро</h2>
+                            <h1 className="red">-{format1(euro(this.state.countOfTrees, this.state.selectedTree))}</h1>
+                            <h2>евро/год</h2>
+                        </div>
+                        <div className="col-md-2">
+                            <h3>Ущерб (50)</h3>
+                            <h1 className="red">-{format(euro50(this.state.countOfTrees, this.state.selectedTree))}</h1>
+                            <h2>тысяч евро</h2>
+                            <br/>
+                            <p>Если бы выбранные деревья простояли еще 50 лет</p>
+
                         </div>
                     </div>
 
@@ -250,6 +266,24 @@ class App extends Component {
                                     <td><p>Возраст (лет)</p></td>
                                     <td><p>{tree.age}</p></td>
                                 </tr>
+                                <tr className="blank_row">
+                                    <td colSpan="2"> </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2"><p><b>Ущерб от рубки</b></p></td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2" className="describe">Если бы дерево простояло еще:</td>
+                                </tr>
+                                <tr>
+                                    <td><p>1 год</p></td>
+                                    <td><p>€{format(tree.money)}</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>50 лет</p></td>
+                                    <td><p>€{format(tree.money50)}</p></td>
+                                </tr>
+
 
 
                             </table>
